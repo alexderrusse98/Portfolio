@@ -1,0 +1,12 @@
+section{
+    height: 100vh;
+    background-image: url("./../../../../assets/img/hero/hero.background.png");
+    >img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    >h1{
+        color: white;
+    }
+}
