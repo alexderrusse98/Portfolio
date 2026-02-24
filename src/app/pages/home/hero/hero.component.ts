@@ -10,58 +10,49 @@ import { CommonModule } from '@angular/common';
 })
 export class HeroComponent {
 
-  frontendChars = 'rontend'.split(''); 
-  developerChars = 'DEVELOPER'.split('');
+  words = {
+    frontend: [...'frontend'],
+    developer: [..."DEVELOPER"],
+  };
 
-  activeWord: 'frontend' | 'developer' | null = null;
-  activeIndex: number | null = null;
+  active: { word: string; index: number } | null = null;
   resetting = false;
 
-  onHover(word: 'frontend' | 'developer', index: number) {
-    if (this.activeWord !== word) {
-      this.activeWord = word;
-      this.activeIndex = index;
+  onHover(word: string, index: number) {
+    const sameWord = this.active?.word === word;
+
+    if (sameWord) {
+      this.resetting = true;
+      this.active = null;
+      requestAnimationFrame(() => {
+        this.resetting = false;
+        this.active = { word, index };
+      });
+    } else {
       this.resetting = false;
-      return;
+      this.active = { word, index };
     }
-
-    this.resetting = true;
-    this.activeIndex = null;
-
-    requestAnimationFrame(() => {
-      this.resetting = false;
-      this.activeIndex = index;
-    });
   }
 
   onLeave() {
-    this.activeWord = null;
-    this.activeIndex = null;
+    this.active = null;
     this.resetting = false;
   }
 
- getChar(char: string, word: 'frontend' | 'developer', index: number): string {
-  if (this.activeWord === word && this.activeIndex === index) {
-    return char === char.toUpperCase()
-      ? char.toLowerCase()
-      : char.toUpperCase();
+  isActive(word: string, index: number): boolean {
+    return this.active?.word === word && this.active?.index === index;
   }
-  return char;
-}
 
-  getTransform(word: 'frontend' | 'developer', index: number): string {
-    if (
-      this.activeWord !== word ||
-      this.activeIndex === null ||
-      this.resetting
-    ) {
-      return 'translateX(0)';
+  getChar(char: string, word: string, index: number): string {
+    if (!this.isActive(word, index)) return char;
+    return char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase();
+  }
+
+  getTransform(word: string, index: number): string {
+    if (!this.active || this.active.word !== word || this.resetting) return 'translateX(0)';
+    if (word === 'developer') {
+      return index < this.active.index ? 'translateX(-10px)' : 'translateX(0)';
     }
-
-    if (index > this.activeIndex) {
-      return 'translateX(32px)';
-    }
-
-    return 'translateX(0)';
+    return index > this.active.index ? 'translateX(32px)' : 'translateX(0)';
   }
 }

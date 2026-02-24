@@ -1,32 +1,29 @@
-<div class="hero-content">
-  <div class="hero-title-wrapper">
+<div class="hero-title-wrapper hero">
 
-    <h1 class="hero-title" (mouseleave)="onLeave()">
+  <h1 class="hero-title" (mouseleave)="onLeave()">
 
-      <span class="char" (mouseenter)="onHover('frontend', 0)" [style.transform]="getTransform('frontend', 0)">
-        <img [src]="activeWord === 'frontend' && activeIndex === 0
-            ? './../../../../assets/imgs/hero/f/f_small_yellow.png'
-            : './../../../../assets/imgs/hero/f/F_big_white.png'" alt="F" />
-      </span>
+    <span class="char" (mouseenter)="onHover('frontend', 0)" [style.transform]="getTransform('frontend', 0)">
+      <img [src]="isActive('frontend', 0)
+        ? 'assets/imgs/hero/f/f_small_yellow.png'
+        : 'assets/imgs/hero/f/F_big_white.png'" alt="F" />
+    </span>
 
-      <span *ngFor="let char of frontendChars; let i = index" class="char" (mouseenter)="onHover('frontend', i + 1)"
-        [style.transform]="getTransform('frontend', i + 1)"
-        [class.active-char]="activeWord === 'frontend' && activeIndex === i + 1">
-        {{ getChar(char, 'frontend', i + 1) }}
-      </span>
+    <span *ngFor="let char of words.frontend.slice(1); let i = index" class="char"
+      [class.active-char]="isActive('frontend', i + 1)" (mouseenter)="onHover('frontend', i + 1)"
+      [style.transform]="getTransform('frontend', i + 1)">
+      {{ getChar(char, 'frontend', i + 1) }}
+    </span>
 
-    </h1>
+  </h1>
 
-  
-    <h1 class="hero-title developer" (mouseleave)="onLeave()">
+  <h1 class="hero-title developer" (mouseleave)="onLeave()">
 
-      <span *ngFor="let char of developerChars; let i = index" class="char" (mouseenter)="onHover('developer', i)"
-        [style.transform]="getTransform('developer', i)"
-        [class.active-char]="activeWord === 'developer' && activeIndex === i">
-       {{ getChar(char, 'developer', i) }}
-      </span>
+    <span *ngFor="let char of words.developer; let i = index" class="char"
+      [class.active-char]="isActive('developer', i)" (mouseenter)="onHover('developer', i)"
+      [style.transform]="getTransform('developer', i)">
+      {{ getChar(char, 'developer', i) }}
+    </span>
 
-    </h1>
+  </h1>
 
-  </div>
 </div>

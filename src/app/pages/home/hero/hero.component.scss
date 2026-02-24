@@ -1,10 +1,19 @@
-.hero-content {
+.hero {
   position: relative;
   height: 100vh;
   background-image: url("./../../../../assets/imgs/Backgrounds/orignal_size/hero_background.png");
   background-size: cover;
   background-position: center;
   overflow: hidden;
+}
+
+/* ---------------- Content ---------------- */
+
+.hero-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 8vw;
 }
 
 .hero-title-wrapper {
@@ -21,18 +30,7 @@
   margin: 0;
   line-height: 1;
 
-  span {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 128px;
-    transition: color 0.25s ease, transform 0.25s ease;
-    will-change: transform;
-  }
-
-
   &.developer {
-
     padding-left: calc(3 * 75px);
     margin-top: -16px;
   }
@@ -40,14 +38,13 @@
 
 .char {
   display: inline-flex;
-  width: 75px;           
+  width: 75px;
   justify-content: center;
   align-items: center;
-  transition:
-    transform 0.25s ease,
-    color 0.25s ease;
-  will-change: transform;
+  font-size: 128px;
   cursor: default;
+  transition: transform 0.25s ease, color 0.25s ease;
+  will-change: transform;
 
   img {
     max-height: 70%;
@@ -59,4 +56,48 @@
 
 .active-char {
   color: #FFD700;
+}
+
+/* ---------------- Floating Elements ---------------- */
+
+.badge-hello {
+  position: absolute;
+  top: 12%;
+  left: 35%;
+}
+
+.polaroid {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  transform: rotate(4deg);
+}
+
+.cta-touch {
+  position: absolute;
+  bottom: 15%;
+  right: 12%;
+}
+
+/* ---------------- Socials ---------------- */
+
+.socials {
+  position: absolute;
+  bottom: 8%;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  img {
+    width: 28px;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
 }
