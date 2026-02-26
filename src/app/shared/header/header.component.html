@@ -3,12 +3,9 @@
 
     <!-- Logo links -->
     <div class="logo">
-      <img 
-        [src]="isHovered 
+      <img [src]="isHovered 
           ? 'assets/imgs/navBar/link_btn/logo_hover.png' 
-          : 'assets/imgs/navBar/link_btn/logo.png'" 
-        alt="Logo"
-        (mouseenter)="isHovered = true"
+          : 'assets/imgs/navBar/link_btn/logo.png'" alt="Logo" (mouseenter)="isHovered = true"
         (mouseleave)="isHovered = false" />
     </div>
 
@@ -16,19 +13,54 @@
 
     <!-- Links mittig -->
     <ul class="nav-links">
-    <li *ngFor="let link of navLinks">
-  <a [routerLink]="link.route" (mouseenter)="hoveredLink = link.id" (mouseleave)="hoveredLink = null">
-    <img class="link-normal" [src]="'assets/imgs/navBar/link_btn/' + link.id + '.png'" alt="" />
-    <img 
-      class="link-hover" 
-      [src]="'assets/imgs/navBar/link_btn/' + link.id + '_hover.png'" 
-      alt=""
-      [class.visible]="hoveredLink === link.id" />
-  </a>
-</li>
+      <li *ngFor="let link of navLinks">
+        <a [routerLink]="link.route" (mouseenter)="hoveredLink = link.id" (mouseleave)="hoveredLink = null">
+          <img class="link-normal" [src]="'assets/imgs/navBar/link_btn/' + link.id + '.png'" alt="" />
+          <img class="link-hover" [src]="'assets/imgs/navBar/link_btn/' + link.id + '_hover.png'" alt=""
+            [class.visible]="hoveredLink === link.id" />
+        </a>
+      </li>
     </ul>
 
     <!-- Sprach-Toggle rechts -->
+    <!-- Sprach-Toggle rechts -->
+<div class="lang-toggle">
+  <img 
+    [src]="lang === 'EN' 
+      ? 'assets/imgs/navBar/language_btn/change_btn_left.png' 
+      : 'assets/imgs/navBar/language_btn/change_btn_right.png'" 
+    alt="Language Toggle" />
+
+  <!-- Hover-Zonen -->
+  <div 
+    class="zone left-zone" 
+    (click)="setLang('EN')"
+    (mouseenter)="hoveredLang = 'EN'"
+    (mouseleave)="hoveredLang = null">
+    <img 
+      class="hover-frame" 
+      src="assets/imgs/navBar/language_btn/toggle_hover.png" 
+      alt=""
+      [class.visible]="hoveredLang === 'EN' && lang !== 'EN'" />
+  </div>
+
+  <div 
+    class="zone right-zone" 
+    (click)="setLang('DE')"
+    (mouseenter)="hoveredLang = 'DE'"
+    (mouseleave)="hoveredLang = null">
+    <img 
+      class="hover-frame" 
+      src="assets/imgs/navBar/language_btn/toggle_hover.png" 
+      alt=""
+      [class.visible]="hoveredLang === 'DE' && lang !== 'DE'" />
+  </div>
+
+</div>
+
+  </nav>
+
+  <!-- Sprach-Toggle rechts
     <div class="lang-toggle">
       <img 
         [src]="lang === 'EN' 
@@ -37,6 +69,7 @@
         alt="Language Toggle"
         (click)="toggleLang()" />
     </div>
+ -->
 
-  </nav>
+  <img src="." alt="">
 </header>

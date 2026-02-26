@@ -14,14 +14,17 @@ export class HeaderComponent {
   hoveredLink: string | null = null;
   lang: 'EN' | 'DE' = 'EN';
 
-navLinks = [
-  { id: 'about_me', label: 'About me', route: '/about' },
-  { id: 'skills', label: 'Skills', route: '/skills' },
-  { id: 'projects', label: 'Projects', route: '/projects' },
-  { id: 'contact', label: 'Ready to work', route: '/ready-to-work' },
-];
+  navLinks = [
+    { id: 'about_me', label: 'About me', route: '/about' },
+    { id: 'skills', label: 'Skills', route: '/skills' },
+    { id: 'projects', label: 'Projects', route: '/projects' },
+    { id: 'contact', label: 'Ready to work', route: '/ready-to-work' },
+  ];
 
-  toggleLang() {
-    this.lang = this.lang === 'EN' ? 'DE' : 'EN';
+
+  hoveredLang: 'EN' | 'DE' | null = null;
+
+  setLang(lang: 'EN' | 'DE') {
+    this.lang = lang;
   }
 }

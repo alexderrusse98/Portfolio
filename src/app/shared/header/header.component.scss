@@ -51,3 +51,44 @@ ul.nav-links {
   height: 28px;
   cursor: pointer;
 }
+
+.lang-toggle {
+  position: relative;
+  display: inline-block;
+
+  img:first-child {
+    display: block;
+    width: 120px;
+  }
+
+  .zone {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 35%; 
+    cursor: pointer;
+
+    &.left-zone {
+      left: 0;
+    }
+
+    &.right-zone {
+      right: 0;
+    }
+  }
+
+  .hover-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+}
