@@ -10,6 +10,12 @@ import { CommonModule } from '@angular/common';
 })
 export class HeroComponent {
 
+  // getInTouchBtn
+  isCtaHovered = false;
+
+  isHovered = false;
+
+
   words = {
     frontend: [...'frontend'],
     developer: [..."DEVELOPER"],

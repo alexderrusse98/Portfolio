@@ -1,5 +1,5 @@
 <div class="hero-title-wrapper hero">
-
+<div class="margin">
   <h1 class="hero-title" (mouseleave)="onLeave()">
 
     <span class="char" (mouseenter)="onHover('frontend', 0)" [style.transform]="getTransform('frontend', 0)">
@@ -26,4 +26,52 @@
 
   </h1>
 
+</div>
+
+
+
+
+  <div class="badge-wrapper" (mouseenter)="isHovered = true" (mouseleave)="isHovered = false">
+
+    <div class="hand-container" [class.active]="isHovered">
+      <img src="assets/imgs/hero/hello/waving_hand.png" class="hand-img">
+    </div>
+
+    <div class="badge-border" [class.expanded]="isHovered">
+      <div class="water-fill" [class.active]="isHovered"></div>
+
+      <div class="content-layer">
+        <img src="assets/imgs/hero/hello/1_Button_primary.png" class="img-hello" [class.fade-out]="isHovered">
+
+        <img src="assets/imgs/hero/hello/name.png" class="img-karl" [class.fade-in]="isHovered">
+      </div>
+    </div>
+  </div>
+
+  <!-- Get in Touch -->
+
+  <div class="cta-touch" (mouseenter)="isCtaHovered = true" (mouseleave)="isCtaHovered = false">
+    <img src="assets/imgs/hero/get_in_Touch/get_in_touch_2.png" class="cta-img orange" [class.visible]="isCtaHovered"
+      alt="Get in Touch Orange">
+
+    <img src="assets/imgs/hero/get_in_Touch/get_in_touch_1.png" class="cta-img black" [class.pressed]="isCtaHovered"
+      alt="Get in Touch Black">
+  </div>
+
+
+
+  <!--Socials-->
+
+
+  <div class="socials">
+    <img src="assets/imgs/hero/links_imgs/gitHub.png" alt="GitHub">
+    <img src="assets/imgs/hero/links_imgs/linkedin.png" alt="LinkedIn">
+    <img src="assets/imgs/hero/links_imgs/mail.png" alt="X">
+  </div>
+
+
+  <!--self img-->
+  <div>
+    <img src="./../../../../assets/imgs/hero/self_img/Polaroid-Frame-Mockup.png" alt="">
+  </div>
 </div>

@@ -8,7 +8,9 @@
 }
 
 /* ---------------- Content ---------------- */
-
+.margin{
+  margin-top: 100px;
+}
 .hero-content {
   height: 100%;
   display: flex;
@@ -88,16 +90,172 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  
 
   img {
     width: 28px;
     cursor: pointer;
     opacity: 0.85;
     transition: transform 0.2s ease, opacity 0.2s ease;
-
+    border: 2px solid white;
+    border-radius: 50%;
     &:hover {
       transform: scale(1.1);
       opacity: 1;
+      background-color: blue;
+    }
+  }
+}
+
+/* ---------------- Hello World ---------------- */
+
+.badge-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 60px; // hand noch besser anpassen
+}
+
+/* --- Die Hand --- */
+.hand-container {
+  position: absolute;
+  z-index: 10;
+  top: 10px; // Feinjustierung nach oben/unten
+  left: 145px; // Start an der rechten Kante von Hello World
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) scale(0.5);
+  // Transition für Bewegung UND Erscheinen
+  transition:
+    left 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease,
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &.active {
+    left: 450px; // Zielposition (Endbreite)
+    opacity: 1;
+    visibility: visible;
+    // Erscheint in voller Größe und zentriert über der Kante
+    transform: translateX(-50%) scale(1);
+  }
+
+  .hand-img {
+    width: 55px;
+    height: auto;
+    // Die Hand soll MITTIG über dem rechten Rand sitzen
+    transform: translateX(-50%) rotate(0deg);
+    transition: transform 0.6s ease;
+  }
+}
+
+.hand-container.active .hand-img {
+  transform: translateX(-50%) rotate(360deg);
+}
+
+/* --- Der Rahmen & das Wasser --- */
+.badge-border {
+  position: relative;
+  width: 145px;
+  height: 85px;
+  border: 2px solid white;
+  border-radius: 160px;
+  overflow: hidden;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.expanded {
+    width: 450px;
+  }
+}
+
+.water-fill {
+  position: absolute;
+  inset: 0;
+  background-color: #1a5cff; // Dein Blau
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s ease-in-out;
+  z-index: 1;
+
+  &.active {
+    transform: scaleX(1);
+  }
+}
+
+/* --- Die Bilder --- */
+.content-layer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-hello {
+  height: 100%; // Füllt den kleinen Button
+  width: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+
+  &.fade-out {
+    opacity: 0;
+  }
+}
+
+.img-karl {
+  position: absolute;
+  width: 80%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.2s; // Erscheint leicht verzögert
+
+  &.fade-in {
+    opacity: 1;
+  }
+}
+
+
+// get in Touch
+
+.cta-touch {
+  position: absolute;
+  bottom: 15%;
+  right: 12%;
+  width: 200px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .cta-img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+  }
+
+
+  .black {
+    z-index: 2;
+    opacity: 1;
+    transform: translateY(0);
+
+    &.pressed {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+  }
+
+  .orange {
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(4px);
+
+    &.visible {
+      opacity: 1;
+      z-index: 3;
     }
   }
 }

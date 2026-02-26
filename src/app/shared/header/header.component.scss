@@ -1,0 +1,53 @@
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4vw;
+  height: 80px;
+}
+
+.logo img {
+  height: 40px;
+  cursor: pointer;
+}
+
+ul.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .link-normal {
+    display: block;
+  }
+
+  .link-hover {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0%;          
+    overflow: hidden;
+    transition: width 0.3s ease;
+
+    &.visible {
+      width: 100%; 
+    }
+  }
+}
+
+.lang-toggle img {
+  height: 28px;
+  cursor: pointer;
+}
