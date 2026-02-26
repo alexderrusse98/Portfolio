@@ -1,17 +1,19 @@
 <header>
   <nav class="navbar">
 
-    <!-- Logo links 
+    <!-- Logo links -->
     <div class="logo">
       <img 
         [src]="isHovered 
-          ? './../../../../src/assets/imgs/navBar/logo_hover.png' 
-          : './../../../../src/assets/imgs/navBar/logo.png'" 
+          ? 'assets/imgs/navBar/link_btn/logo_hover.png' 
+          : 'assets/imgs/navBar/link_btn/logo.png'" 
         alt="Logo"
         (mouseenter)="isHovered = true"
         (mouseleave)="isHovered = false" />
     </div>
--->
+
+
+
     <!-- Links mittig -->
     <ul class="nav-links">
     <li *ngFor="let link of navLinks">
@@ -26,16 +28,15 @@
 </li>
     </ul>
 
-    <!-- Sprach-Toggle rechts 
+    <!-- Sprach-Toggle rechts -->
     <div class="lang-toggle">
       <img 
         [src]="lang === 'EN' 
-          ? './../../../../src/assets/imgs/navBar/toggle_en.png' 
-          : './../../../../src/assets/imgs/navBar/toggle_de.png'" 
+          ? 'assets/imgs/navBar/language_btn/change_btn_left.png' 
+          : 'assets/imgs/navBar/language_btn/change_btn_right.png'" 
         alt="Language Toggle"
         (click)="toggleLang()" />
     </div>
--->
-<!--<img src="./../../../../src/assets/imgs/navBar/link_btn/contact.png" alt="">-->
+
   </nav>
 </header>
