@@ -1,1 +1,27 @@
-<p>skills works!</p>
+<section class="skill-section">
+    <div class="skill-head">
+        <div class="skill-title">
+            <p>MY STACK</p>
+            <div class="line">
+                <h2>Skill set</h2>
+                <img class="line-img" [class.visible]="showLine" src="assets/imgs/Hand_drawn_lines/Skills/color.png"
+                    alt="">
+            </div>
+        </div>
+        <div class="skill-description">
+            <img class="skill-description-background" src="assets/imgs/Ripped_Paper/Skills_description.png" alt="">
+            <p>A short introduction of your skills. Highlight your experience of using
+                different front-end technologies and emphasise your openness to learning and
+                adapting to new technologies. </p>
+        </div>
+    </div>
+    <div class="margin">
+        <div class="skills-grid">
+            <div class="skill-item" *ngFor="let skill of skills">
+                <img [src]="'assets/imgs/skills/icons/' + skill.id + '.png'" [alt]="skill.label">
+                <p>{{ skill.label }}</p>
+            </div>
+        </div>
+    </div>
+    
+</section>
