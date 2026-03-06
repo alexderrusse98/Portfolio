@@ -23,5 +23,34 @@
             </div>
         </div>
     </div>
-    
+
+    <div class="sticker" (click)="onPeel()">
+
+        <div *ngIf="peelState === 'closed'" class="sticker-content-closed">
+            <img *ngIf="peelState === 'closed'" src="assets/imgs/Stickers/01_Skills/color/A.png" alt="">
+            <img class="arrow" src="./../../../../assets/imgs/Stickers/arrow.png" alt="">
+            <p>Pull to peel</p>
+        </div>
+        <img *ngIf="peelState === 'half'" src="assets/imgs/Stickers/01_Skills/color/B.png" alt="">
+
+
+        <div *ngIf="peelState === 'open'" class="sticker-content-open">
+            <img class="sticker-bg" src="assets/imgs/Stickers/01_Skills/color/C.png" alt="">
+
+            <div class="sticker-open-content">
+                <p>Also, I'm interested in diving into:</p>
+                <div class="sticker-icons">
+                    <div class="sticker-icon-item">
+                        <img src="./../../../../assets/imgs/skills/icons/react.png" alt="React">
+                        <span>React</span>
+                    </div>
+                    <div class="sticker-icon-item">
+                        <img src="./../../../../assets/imgs/skills/icons/vue_js.png" alt="Vue.js">
+                        <span>Vue.js</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </section>
