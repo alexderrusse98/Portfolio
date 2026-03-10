@@ -7,6 +7,11 @@
     padding: 144px 120px 144px 120px;
 }
 
+app-animated-line {
+    display: block;
+    --line-width: 300px;
+}
+
 .skill-title {
     display: flex;
     flex-direction: column;
@@ -35,34 +40,6 @@
     justify-content: space-around;
     align-items: center;
     height: 144px;
-}
-
-.line {
-    position: relative;
-    display: inline-block;
-    align-items: flex-end;
-
-    h2 {
-        font-size: 62px;
-        font-weight: 700;
-        margin: 0;
-        line-height: 1;
-        position: relative;
-        z-index: 1;
-    }
-
-    .line-img {
-        position: absolute;
-        bottom: 25px;
-        left: 0;
-        max-width: 300px;
-        width: 0%;
-        transition: width 0.8s ease;
-
-        &.visible {
-            width: 100%;
-        }
-    }
 }
 
 .skill-description {
