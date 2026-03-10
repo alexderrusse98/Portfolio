@@ -1,10 +1,11 @@
 import { Component, } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AnimatedLineComponent } from '../../../shared/animated-line/animated-line.component';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, AnimatedLineComponent],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss'
 })

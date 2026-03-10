@@ -1,0 +1,9 @@
+.animated-img {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: block;
+}
+
+.visible {
+    opacity: 1;
+}

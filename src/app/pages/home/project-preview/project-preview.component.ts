@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AnimatedLineComponent } from '../../../shared/animated-line/animated-line.component';
 
 @Component({
   selector: 'app-project-preview',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, AnimatedLineComponent],
   templateUrl: './project-preview.component.html',
   styleUrl: './project-preview.component.scss'
 })
