@@ -1,36 +1,26 @@
-<section>
-    <div>
-        <p></p>
-        <h2>Projects</h2>
-        <img src="" alt="">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </div>
+<section class="container">
+   
+        <div>
+            <p>MY CRAFT</p>
+            <div class="line">
+                <h2>Projects</h2>
+                <img class="line-img" src="assets/imgs/projects/projects_line.png" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores quis debitis esse rerum nisi, reiciendis illum quam reprehenderit? Non voluptas rerum, pariatur quibusdam cumque totam in? Hic sapiente voluptas amet.</p>
+            </div>
+        </div>
 
-    <div>
-        <img src="" alt="">
-        <img src="" alt="">
-        <h3>Join</h3>
-        <p>Dies ist ein kurzer Beispieltext als Platzhalter für Inhalte.
-            Er zeigt, wie ein Abschnitt mit mehreren Zeilen aussehen kann.
-            Der Text hat keine echte Bedeutung und dient nur zum Layouten.</p>
-    </div>
+        <div class="project-card" *ngFor="let project of projects">
+            <img src="{{ project.imageUrl }}" alt="{{ project.title }}">
+            <img class="sticker" *ngIf="project.imgExtra" src="{{ project.imgExtra }}" alt="{{ project.title }}">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
 
-    <div>
-        <img src="" alt="">
-        <h3>El Pollo Loco</h3>
-        <p>Ein weiterer Demo-Text für Webseiten oder Anwendungen.
-            Damit lässt sich prüfen, wie Textblöcke im Design wirken.
-            Später kann dieser problemlos durch echten Inhalt ersetzt werden.</p>
-    </div>
-
-    <div>
-        <img src="" alt="">
-        <h3>Pokedex</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </div>
-
+        </div>
 </section>
+
+
+<!--
+<img src="./../../../../assets/imgs/projects/full_sticker.png" alt="">
+ <img src="./../../../../assets/imgs/projects/04_ Color option 2 - B.png" alt="">
+ <img src="./../../../../assets/imgs/projects/05_ Color option 2 - C.png" alt="">
+-->
