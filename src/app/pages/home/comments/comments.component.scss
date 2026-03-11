@@ -1,0 +1,145 @@
+section {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 80px;
+    gap: 40px;
+
+    .comment-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        margin-top: 50px;
+    }
+}
+
+.comment-headline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .headline-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    h2 {
+        font-size: 64px;
+        font-weight: 700;
+        margin: 0;
+    }
+}
+
+
+.comment-card {
+    position: relative;
+    width: 450px;
+    height: 300px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease, z-index 0s;
+
+    /* Überlappung nach links */
+    &:not(:first-child) {
+        margin-left: -80px;
+    }
+
+    /* Fächer-Rotation */
+    &:nth-child(1) {
+        transform: rotate(-4deg);
+        z-index: 1;
+    }
+
+    &:nth-child(2) {
+        transform: rotate(0deg);
+        z-index: 2;
+    }
+
+    &:nth-child(3) {
+        transform: rotate(4deg);
+        z-index: 1;
+    }
+
+    &:hover {
+        transform: scale(1.05) rotate(0deg) translateY(-15px);
+        z-index: 10;
+
+        .hover-overlay {
+            opacity: 1;
+        }
+    }
+
+    /* Linie/Highlight beim Hover */
+    .hover-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 12px;
+        background-image: url('../../../../assets/imgs/comments/Line.png');
+        background-size: cover;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        z-index: 2;
+        position: relative;
+    }
+
+    .comment-text {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #333;
+    }
+
+    .footer-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #666;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .comment-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .comment-card {
+        margin-left: 0 !important;
+        margin-top: -40px;
+        width: 85%;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}

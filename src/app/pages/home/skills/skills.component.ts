@@ -10,7 +10,6 @@ import { AnimatedLineComponent } from '../../../shared/animated-line/animated-li
   styleUrl: './skills.component.scss'
 })
 export class SkillsComponent {
-  showLine = false;
 
   skills = [
     { id: 'html', label: 'HTML' },
@@ -25,12 +24,6 @@ export class SkillsComponent {
     { id: 'material', label: 'Material Design' },
   ];
 
-  ngOnInit() {
-    setInterval(() => {
-      this.showLine = true;
-      setTimeout(() => this.showLine = false, 3000);
-    }, 5000);
-  }
 
   peelState: 'closed' | 'half' | 'open' = 'closed';
 

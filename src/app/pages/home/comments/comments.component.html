@@ -1,1 +1,30 @@
-<p>comments works!</p>
+<section>
+    <div class="comment-headline">
+        <div class="headline-content">
+            <app-animated-line [imageSrc]="'./../../../../assets/imgs/comments/arrow.png'"></app-animated-line>
+            <p>IN THEIR WORDS</p>
+        </div>
+        <h2>Colleagues Thoughts</h2>
+    </div>
+
+    <div class="comment-container">
+        <div class="comment-card" *ngFor="let comment of comments" [style.backgroundImage]="'url(' + comment.img + ')'">
+
+            <div class="hover-overlay"></div>
+
+            <div class="card-content">
+                <p class="comment-text">{{ comment.text }}</p>
+
+                <div class="footer-info">
+                    <div class="user-details">
+                        <h3>{{ comment.name }}</h3>
+                        <p>{{ comment.job }}</p>
+                    </div>
+                    <a *ngIf="comment.linkInd" [href]="comment.linkInd" target="_blank">
+                        <img src="assets/imgs/icons/linkedin.png" alt="LinkedIn">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

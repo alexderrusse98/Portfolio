@@ -1,1 +1,13 @@
-<p>footer works!</p>
+<footer>
+
+
+    <!-- Logo links -->
+    <div class="logo">
+        <img [src]="isHovered 
+          ? 'assets/imgs/navBar/link_btn/logo_hover.png' 
+          : 'assets/imgs/navBar/link_btn/logo.png'" alt="Logo" (mouseenter)="isHovered = true"
+            (mouseleave)="isHovered = false" />
+    </div>
+
+
+</footer>

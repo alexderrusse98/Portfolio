@@ -11,7 +11,9 @@
         </div>
     </div>
 
-    <div class="project-card" [ngClass]="{'join-project': project.title === 'Join'}" *ngFor="let project of projects">
+    <div class="project-card" 
+    [ngClass]="{'join-project': project.title === 'Join'}" 
+    *ngFor="let project of projects">
 
         <div class="image-wrapper">
             <img src="{{ project.imageUrl }}" alt="{{ project.title }}">

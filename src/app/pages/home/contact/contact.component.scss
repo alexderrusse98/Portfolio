@@ -1,0 +1,64 @@
+.contact-content {
+    height: 800px;
+    background-image: url("./../../../../assets/imgs/Backgrounds/orignal_size/Footer.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 144px 120px 144px 120px;
+}
+
+
+
+/* Sticker */
+
+.sticker-wrapper {
+    position: relative;
+    width: 180px;
+
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .sticker-base {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .sticker-logo {
+        width: 40%;
+
+        z-index: 2;
+    }
+}
+
+.sticker-text-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    overflow: visible;
+
+
+    transform: rotate(0deg);
+    animation: rotateSticker 15s linear infinite;
+
+    text {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 8.5px;
+        fill: #000;
+    }
+}
+
+@keyframes rotateSticker {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -3,7 +3,8 @@ import { HeroComponent } from './hero/hero.component';
 import { AboutComponent } from './about/about.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ProjectPreviewComponent } from './project-preview/project-preview.component';
-import { ReadyToWorkComponent } from './ready-to-work/ready-to-work.component';
+import { CommentsComponent } from './comments/comments.component';
+import { ContactComponent } from './contact/contact.component';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ import { ReadyToWorkComponent } from './ready-to-work/ready-to-work.component';
     AboutComponent,
     SkillsComponent,
     ProjectPreviewComponent,
-    ReadyToWorkComponent
+    CommentsComponent,
+    ContactComponent
   ],
 
   templateUrl: './home.component.html',
