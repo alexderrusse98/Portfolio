@@ -1,64 +1,210 @@
+
+
 .contact-content {
-    height: 800px;
-    background-image: url("./../../../../assets/imgs/Backgrounds/orignal_size/Footer.png");
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 144px 120px 144px 120px;
+  display: flex;
+  height: 800px;
+  background-image: url("./../../../../assets/imgs/Backgrounds/orignal_size/Footer.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 144px 120px 144px 120px;
 }
-
-
 
 /* Sticker */
 
 .sticker-wrapper {
-    position: relative;
-    width: 180px;
+  position: relative;
+  width: 180px;
 
-    height: 180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    .sticker-base {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-    }
+  .sticker-base {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
 
-    .sticker-logo {
-        width: 40%;
+  .sticker-logo {
+    width: 40%;
 
-        z-index: 2;
-    }
+    z-index: 2;
+  }
 }
 
 .sticker-text-svg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    overflow: visible;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  overflow: visible;
 
 
-    transform: rotate(0deg);
-    animation: rotateSticker 15s linear infinite;
+  transform: rotate(0deg);
+  animation: rotateSticker 15s linear infinite;
 
-    text {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 800;
-        text-transform: uppercase;
-        font-size: 8.5px;
-        fill: #000;
-    }
+  text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 8.5px;
+    fill: #000;
+  }
 }
 
 @keyframes rotateSticker {
-    from {
-        transform: rotate(0deg);
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* inputs */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+
+  .input-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0;
+
+    border-bottom: 2px solid #FFC000;
+    margin-top: -2px;
+    background-color: transparent;
+    transition: all 0.2s ease;
+    z-index: 1;
+
+    label {
+      color: white;
+      transition: color 0.3s ease;
+      font-weight: bold;
     }
 
-    to {
-        transform: rotate(360deg);
+    input,
+    textarea {
+      resize: none;
+      background: transparent;
+      border: none;
+      color: white;
+      outline: none;
+      font-size: 1.1rem;
+      padding-top: 8px;
+
+      &::placeholder {
+        color: #888;
+      }
     }
+
+    &:hover,
+    &:focus-within {
+      z-index: 2;
+      border-bottom-color: #4B4BFF;
+
+      label {
+        color: #E26E40;
+      }
+    }
+  }
+
+  border-top: 2px solid transparent;
+  transition: border-top-color 0.2s ease;
+
+  &:has(.input-group:first-child:hover),
+  &:has(.input-group:first-child:focus-within) {
+    border-top-color: #4B4BFF;
+  }
+
+  .input-group:has(+ .input-group:hover),
+  .input-group:has(+ .input-group:focus-within) {
+    border-bottom-color: #4B4BFF;
+    z-index: 2;
+  }
+}
+
+/* checkbox */
+
+.privacy-container {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 35px;
+
+  p {
+    margin: 0;
+    line-height: 1.4;
+
+    a {
+      color: #4B4BFF;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: transparent;
+    border: 2px solid #4B4BFF;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+
+
+      left: 7px;
+      top: 3px;
+      width: 6px;
+      height: 12px;
+      border: solid #FFC000;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+
+  input:checked~.checkmark {
+
+    &::after {
+      display: block;
+    }
+  }
 }
