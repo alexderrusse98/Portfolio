@@ -9,5 +9,5 @@ import { AnimatedLineComponent } from '../../../shared/animated-line/animated-li
   styleUrl: './about.component.scss'
 })
 export class AboutComponent {
-
+  isCtaHovered = false;
 }

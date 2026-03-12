@@ -32,13 +32,20 @@
   <div class="about-right">
     <p>Wer bin ich?</p>
     <h2>Rechte Seite</h2>
-      <app-animated-line [imageSrc]="'assets/imgs/about_me/line.png'"></app-animated-line>
+    <app-animated-line [imageSrc]="'assets/imgs/about_me/line.png'"></app-animated-line>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Porro neque, fugiat libero,
       omnis voluptas dolore obcaecati deleniti perspiciatis
       officiis quod enim at eaque in beatae sit maxime ullam
       dolorem blanditiis.</p>
-    <button class="lets-talk">lets-talk</button>
+
+    <div class="cta-touch" (mouseenter)="isCtaHovered = true" (mouseleave)="isCtaHovered = false">
+
+      <img src="assets/imgs/about_me/lets_talk_black.png" class="cta-img black" [class.pressed]="isCtaHovered"
+        alt="Get in Touch Black">
+      <img src="assets/imgs/about_me/lets_talk_orange.png" class="cta-img orange" [class.visible]="isCtaHovered"
+        alt="Get in Touch Orange">
+    </div>
   </div>
 
 

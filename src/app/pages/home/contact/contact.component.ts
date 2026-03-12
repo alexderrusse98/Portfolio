@@ -10,5 +10,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
-
+  isCtaHovered = false;
 }
